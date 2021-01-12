@@ -45,7 +45,7 @@
       return this.musicLength <= 62;
     }
   }
-  var site = new Site({
+  const site = new Site({
     speakerSelector:
       "#main > div > div.Root__top-container > div.Root__now-playing-bar > footer > div > div.now-playing-bar__right > div > div.volume-bar > button",
     musicLengthSelector:
