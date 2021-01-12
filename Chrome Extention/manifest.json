@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Spotify Ads Muter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Mute Spotify whenever ads played and unmute when finished in Spotify Chrome",
   "author": "elcoreman",
   "permissions": [

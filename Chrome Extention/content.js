@@ -1,6 +1,4 @@
 (function () {
-  if (window.hasRun) return;
-  window.hasRun = true;
   console.log(`"Spotify Ads Muter" succussfully injected to Spotify`);
 
   class Site {
@@ -12,13 +10,19 @@
       return document.querySelector(this.speakerSelector);
     }
     get isMuted() {
-      return this.speaker.getAttribute("aria-label") != "Mute";
+      return (
+        this.speaker &&
+        this.speaker.getAttribute("aria-label") &&
+        this.speaker.getAttribute("aria-label") != "Mute"
+      );
     }
     mute() {
-      if (!this.isMuted) this.speaker.click();
+      if (!this.isMuted) this.speaker && this.speaker.click();
+      return this;
     }
     unMute() {
-      if (this.isMuted) this.speaker.click();
+      if (this.isMuted) this.speaker && this.speaker.click();
+      return this;
     }
     get musicLength() {
       let length = 0;
@@ -26,11 +30,12 @@
         length = document
           .querySelector(this.musicLengthSelector)
           .innerText.split(":")
-          .map((n) => Number(n))
-          .reduce((a, v, i, arr) => {
-            const acc = i == 1 ? a * 60 ** (arr.length - i) : a;
-            return acc + v * 60 ** (arr.length - i - 1);
-          });
+          .map((v) => Number(v)) // convert each string value to numbers
+          .map((v, i, arr) => {
+            const mul = 60 ** (arr.length - i - 1);
+            return v * mul;
+          }) // convert each value to seconds
+          .reduce((a, c) => a + c); // Sum up seconds
       } catch (err) {
         return length;
       }
