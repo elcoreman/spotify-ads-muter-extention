@@ -5,24 +5,25 @@
     constructor(props) {
       this.speakerSelector = props.speakerSelector;
       this.musicLengthSelector = props.musicLengthSelector;
-    }
-    get speaker() {
-      return document.querySelector(this.speakerSelector);
+      this.maxAdsLength = props.maxAdsLength;
     }
     get isMuted() {
+      const speaker = document.querySelector(this.speakerSelector);
       return (
-        this.speaker &&
-        this.speaker.getAttribute("aria-label") &&
-        this.speaker.getAttribute("aria-label") != "Mute"
+        speaker &&
+        speaker.getAttribute("aria-label") &&
+        speaker.getAttribute("aria-label") != "Mute"
       );
     }
     mute() {
-      if (!this.isMuted) this.speaker && this.speaker.click();
-      return this;
+      const speaker = document.querySelector(this.speakerSelector);
+      if (!this.isMuted) return speaker && speaker.click();
+      return false;
     }
     unMute() {
-      if (this.isMuted) this.speaker && this.speaker.click();
-      return this;
+      const speaker = document.querySelector(this.speakerSelector);
+      if (this.isMuted) return speaker && speaker.click();
+      return false;
     }
     get musicLength() {
       let length = 0;
@@ -42,14 +43,17 @@
       return length;
     }
     adIsPlaying() {
-      return this.musicLength <= 62;
+      return this.musicLength <= this.maxAdsLength;
     }
   }
+
   const site = new Site({
     speakerSelector:
       "#main > div > div.Root__top-container > div.Root__now-playing-bar > footer > div > div.now-playing-bar__right > div > div.volume-bar > button",
     musicLengthSelector:
       "#main > div > div.Root__top-container > div.Root__now-playing-bar > footer > div > div.now-playing-bar__center > div > div.playback-bar > div:nth-child(3)",
+    maxAdsLength: 62,
   });
+
   setInterval(() => (site.adIsPlaying() ? site.mute() : site.unMute()), 3e3);
 })();
