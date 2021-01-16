@@ -10,19 +10,18 @@
     get isMuted() {
       const speaker = document.querySelector(this.speakerSelector);
       return (
-        speaker &&
-        speaker.getAttribute("aria-label") &&
+        speaker?.getAttribute("aria-label") &&
         speaker.getAttribute("aria-label") != "Mute"
       );
     }
     mute() {
       const speaker = document.querySelector(this.speakerSelector);
-      if (!this.isMuted) return speaker && speaker.click();
+      if (!this.isMuted) return speaker?.click();
       return false;
     }
     unMute() {
       const speaker = document.querySelector(this.speakerSelector);
-      if (this.isMuted) return speaker && speaker.click();
+      if (this.isMuted) return speaker?.click();
       return false;
     }
     get musicLength() {
