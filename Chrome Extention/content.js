@@ -17,13 +17,11 @@
     }
     mute() {
       const speaker = document.querySelector(this.speakerSelector);
-      if (!this.isMuted) return speaker?.click();
-      return false;
+      return this.isMuted ? false : speaker?.click();
     }
     unMute() {
       const speaker = document.querySelector(this.speakerSelector);
-      if (this.isMuted) return speaker?.click();
-      return false;
+      return this.isMuted ? speaker?.click() : false;
     }
     get musicLength() {
       let length = 0;
@@ -46,7 +44,7 @@
       return this.musicLength <= this.maxAdsLength;
     }
     hideElements() {
-      document
+      return document
         .querySelectorAll(this.shouldHideSelectors.join(","))
         .forEach((elem) => (elem.style.display = "none"));
     }
