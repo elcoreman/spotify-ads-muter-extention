@@ -1,12 +1,14 @@
 {
   "manifest_version": 2,
   "name": "Spotify Ads Muter",
-  "version": "1.0.0",
-  "description": "Mute or hide all kind of Ads on open.spotify.com.",
+  "version": "1.1.0",
+  "description": "Mute all kinds of Ads on open.spotify.com",
   "author": "elcoreman",
-  "icons": { "16": "icon16.png",
-             "48": "icon48.png",
-            "128": "icon128.png" },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "permissions": [
     "*://open.spotify.com/*"
   ],
