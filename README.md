@@ -5,11 +5,11 @@ for who's cant buy premium membership because of USA sanctions!
 
 ## Usage
 
-Just download and load or Drag & Drop extension folder to your browser extension list
+Just download and load or drag & drop extension folder to your browser extension list
 
 ## For Contributors
 
-This project can be better with:
+This project can be better by:
 
 - Replacing setInterval with Observer
 - Support Other Browsers
