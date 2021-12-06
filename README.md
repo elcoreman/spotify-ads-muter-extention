@@ -9,8 +9,8 @@ for who's cant buy premium membership because of USA sanctions!
 2. Extract zip file
 3. Go to browser extension manager, in chrome: `chrome://extensions/`
 4. Set `Developer mode` to `on` to be able to install extention localy
-5. Open `spotify-ads-muter-chrome-extention` folder by clicking on `Load unpacked` button
-   now the extention added to extention list
+5. Open `spotify-ads-muter-chrome-extention` folder by clicking on `Load unpacked` button\
+   now the extention added to extention list\
    you can refresh or go to `http://open.spotify.com` to see changes.
 
 ## For Contributors
